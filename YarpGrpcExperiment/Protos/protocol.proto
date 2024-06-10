@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option csharp_namespace = "YarpTest";
+
+package YarpTest;
+
+message Message {
+	string Message = 1;
+}
+
+service Service {
+	rpc ExchangeHeadersOnly(stream Message) returns (stream Message);
+
+	rpc ExchangeHeadersAndSendMessage(stream Message) returns (stream Message);
+}
